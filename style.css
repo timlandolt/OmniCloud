@@ -4,6 +4,7 @@
     --primary: #339ff4;
     --secondary: #a7d0ff;
     --text-primary: #070937;
+    --text-secondary: #298dc7;
 }
 
 body {
@@ -64,7 +65,7 @@ nav a {
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.2)
     ), url("img/hero.jpg");
-    height: 20vh;
+    height: 25vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -77,15 +78,21 @@ nav a {
 .hero h1 {
     color: white;
     text-align: center;
-    margin: 1rem 0;
+    font-size: xxx-large;
+    font-weight: lighter;
+    margin: 0.1rem 0;
 }
 
 .button {
     text-decoration: none;
     color: white;
     background: var(--primary);
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+}
+
+.button:hover {
+    background-color: var(--text-secondary);
 }
 
 
