@@ -98,4 +98,62 @@ nav a {
 
 main {
     margin: 0 10dvw;
+    display: flex;
+    flex-direction: column;
+}
+
+.centered {
+    text-align: center;
+}
+
+.angebot {
+    margin: auto;
+    outline: solid var(--secondary);
+    border-radius: 20px;
+    padding:0 1rem 1.5rem 1rem;
+}
+
+.inline {
+    display: inline-block;
+    margin: 0.2rem 0;
+}
+
+.bewertungen {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 3rem;
+}
+
+.ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rating {
+    margin: auto;
+    outline: solid var(--secondary);
+    border-radius: 20px;
+    padding:0.6rem 1rem;
+    width: 35rem;
+}
+
+.rating h4 {
+    font-size: larger;
+    margin: 0;
+    margin-bottom: 0.4rem;
+}
+
+.rating p {
+    margin: 0;
+}
+
+.rating img {
+    width: 7rem;
+}
+
+#stars {
+    width: 35rem;
 }
