@@ -54,6 +54,10 @@ nav a {
     font-weight: bold;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
 .hero {
     display: block;
     background-image: linear-gradient(

@@ -6,29 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OmniCloud | Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div id="wrapper">
-    <header>
-        <a href="index.html">
-            <img src="img/logo.png">
-            <h1>OmniCloud</h1>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="/order.php">Server bestellen</a></li>
-                <li><a href="/ueber-uns.html">Über uns</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="behind-header">
-    </div>
+    <?php include('header.html'); ?>
     <div class="hero">
         <h1>Cloud made easy</h1>
         <a href="order.php" class="button">Jetzt Server bestellen</a>
     </div>
+
     <main>
         <section>
             <p class="centered">
@@ -76,7 +63,8 @@
                     <h4>Basil Schöni</h4>
                     <img src="img/stars_1.webp" alt="">
                     <p><b>Einfach zu verstehen, netter Service</b></p>
-                    <p>Ich nutze OmniCloud seit geraumer Zeit. Es ist einfach zu bedienen und er Service ist immer nett.</p>
+                    <p>Ich nutze OmniCloud seit geraumer Zeit. Es ist einfach zu bedienen und er Service ist immer
+                        nett.</p>
                 </div>
             </div>
             <div>
