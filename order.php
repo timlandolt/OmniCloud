@@ -1,31 +1,90 @@
 <?php
-$virtual_machines = [];
+$vmCount = 0;
 
 $small_server = ["cpu" => 4, "ram" => 32, "ssd" => 4000];
 $medium_server = ["cpu" => 8, "ram" => 64, "ssd" => 8000];
 $big_server = ["cpu" => 16, "ram" => 128, "ssd" => 16000];
 
-function order() {
+$kunde = "";
 
+getServerData();
+
+if (isset($_POST[""]))                                                  //Tim
+testOrder($_POST[""], $_POST[""], $_POST[""]);                          //Tim
+function getServerData()
+{
+
+    global $vmCount;
     global $small_server;
     global $medium_server;
     global $big_server;
-    if ($_POST["cpu"] < $small_server["cpu"] && $_POST["ram"] < $small_server["ram"] && $_POST["ssd"] < $small_server["ssd"]) {
-        $small_server["cpu"] -= $_POST["cpu"];
-        $small_server["ram"] -= $_POST["ram"];
-        $small_server["ssd"] -= $_POST["ssd"];
-    } elseif ($_POST["cpu"] < $medium_server["cpu"] && $_POST["ram"] < $medium_server["ram"] && $_POST["ssd"] < $medium_server["ssd"]) {
-        $medium_server["cpu"] -= $_POST["cpu"];
-        $medium_server["ram"] -= $_POST["ram"];
-        $medium_server["ssd"] -= $_POST["ssd"];
-    } elseif ($_POST["cpu"] < $big_server["cpu"] && $_POST["ram"] < $big_server["ram"] && $_POST["ssd"] < $big_server["ssd"]) {
-        $big_server["cpu"] -= $_POST["cpu"];
-        $big_server["ram"] -= $_POST["ram"];
-        $big_server["ssd"] -= $_POST["ssd"];
-    } else {
-        //popup: "Zu grosse Angaben!"
+
+    $myfile = file("kunden.txt");
+
+    foreach ($myfile as $line) {
+
+        $vmCount++;
+
+        $dataElements = explode(",", $line);
+
+        if ($dataElements[1] == "small") {
+
+            $small_server["cpu"] -= $dataElements[2];
+            $small_server["ram"] -= $dataElements[3];
+            $small_server["ssd"] -= $dataElements[4];
+
+        } elseif ($dataElements[1] == "medium") {
+
+            $medium_server["cpu"] -= $dataElements[2];
+            $medium_server["ram"] -= $dataElements[3];
+            $medium_server["ssd"] -= $dataElements[4];
+
+        } elseif ($dataElements[1] == "big") {
+
+            $big_server["cpu"] -= $dataElements[2];
+            $big_server["ram"] -= $dataElements[3];
+            $big_server["ssd"] -= $dataElements[4];
+
+        }
+    };
+}
+
+function testOrder($cores, $ram, $storage)
+{
+
+    global $vmCount;
+    global $small_server;
+    global $medium_server;
+    global $big_server;
+    $server = "";
+
+    if ($cores <= $small_server["cpu"] && $ram <= $small_server["ram"] && $storage <= $small_server["ssd"]) {
+        $server = "small";
     }
 
+    elseif ($cores <= $medium_server["cpu"] && $ram <= $medium_server["ram"] && $storage <= $medium_server["ssd"]) {
+        $server = "medium";
+    }
+
+    elseif ($cores <= $big_server["cpu"] && $ram < $big_server["ram"] && $storage <= $big_server["ssd"]) {
+        $server = "big";
+    }
+
+    else {
+                                                                //Tim
+    }
+
+    if (server != "") {
+        pushOrder($vmCount, $server, $cores, $ram, $storage);
+    }
+}
+
+function pushOrder($vmCount, $server, $cores, $ram, $storage)
+{
+    $vmCount += 1;
+    $myfile = fopen("kunden.txt", "a");
+    $input = "\n".$vmCount . "," . $server . "," . $cores . "," . $ram . "," . $storage;
+    fwrite($myfile, $input);
 }
 
 ?>
@@ -39,6 +98,8 @@ function order() {
     <title>OmniCloud-Serverbestellen</title>
 </head>
 <body>
-
+<div id="wrapper">
+    <?php include('header.html'); ?>
+</div>
 </body>
 </html>
