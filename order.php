@@ -7,6 +7,26 @@ $big_server = ["cpu" => 16, "ram" => 128, "ssd" => 16000];
 
 $kunde = "";
 
+function getServerData(){
+    $myfile = fopen("kunden.txt", "r");
+
+    while(! feof($myfile))
+    {
+        foreach (fgets($myfile) as $line){
+            $dataElements = explode(",", $line);
+            if ($dataElements[1] == "small") {
+
+            } elseif ($dataElements[1] == "medium") {
+
+            } elseif ($dataElements[1] == "big") {
+
+            }
+        };
+    }
+
+    fclose($myfile);
+}
+
 function testOrder($cores, $ram, $storage) {
 
     global $kunde;
@@ -27,8 +47,8 @@ function testOrder($cores, $ram, $storage) {
 
 function pushOrder($kunde, $server, $cores, $ram, $storage){
 
-    $myfile = fopen("kunden.txt", "a") or die("Unable to open file!");
-    $input = $kunde." ".$server." ".$cores." ".$ram." ".$storage;
+    $myfile = fopen("kunden.txt", "a");
+    $input = $kunde.",".$server.",".$cores.",".$ram.",".$storage;
     fwrite($myfile, $input);
 }
 
