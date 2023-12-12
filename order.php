@@ -96,9 +96,44 @@ function pushOrder($vmCount, $server, $cores, $ram, $storage)
 <body>
 <div id="wrapper">
     <?php include('header.html'); ?>
+    <div class="hero">
+        <h1>Server Konfigurieren</h1>
+        <p>In nur wenigen Clicks!</p>
+    </div>
     <main>
-        <section>
+        <h2 style="text-align: center">Wählen Sie Ihre Spezifikationen aus</h2>
+        <section class="centered flex-section">
 
+            <form action="order.php" method="post" class="card">
+                <h3>Arbeitsspeicher</h3>
+                <input type="radio" name="ram" id="ram" value="512" checked><br>
+                <input type="radio" name="ram" id="ram" value="1024">1'024 MB <i>(10 CHF)</i><br>
+                <input type="radio" name="ram" id="ram" value="2048">2'048 MB <i>(20 CHF)</i><br>
+                <input type="radio" name="ram" id="ram" value="4096">4'096 MB <i>(40 CHF)</i><br>
+                <input type="radio" name="ram" id="ram" value="8192">8'192 MB <i>(80 CHF)</i><br>
+                <input type="radio" name="ram" id="ram" value="16384"><i>16'384 MB (160 CHF)</i><br>
+                <input type="radio" name="ram" id="ram" value="32768"><i>32'768 MB (320 CHF)</i><br>
+            </form>
+
+            <form action="order.php" method="post" class="card">
+                <h3>Prozessoren</h3>
+                <input type="radio" name="cpu" id="cpu" value="1" checked>1 Kern <i>(5 CHF)</i> <br>
+                <input type="radio" name="cpu" id="cpu" value="2">2 Kerne <i>(10 CHF)</i> <br>
+                <input type="radio" name="cpu" id="cpu" value="4">4 Kerne <i>(18 CHF)</i> <br>
+                <input type="radio" name="cpu" id="cpu" value="8">8 Kerne <i>(30 CHF)</i> <br>
+                <input type="radio" name="cpu" id="cpu" value="16">16 Kerne <i>(45 CHF)</i> <br>
+            </form>
+
+            <form action="order.php" method="post" class="card">
+                <h3>Speicherplatz</h3>
+                <input type="radio" name="ssd" id="ssd" value="10" checked>10 GB <i>(5 CHF)</i><br>
+                <input type="radio" name="ssd" id="ssd" value="20">20 GB <i>(10 CHF)</i><br>
+                <input type="radio" name="ssd" id="ssd" value="40">40 GB <i>(20 CHF)</i><br>
+                <input type="radio" name="ssd" id="ssd" value="80">80 GB <i>(40 CHF)</i><br>
+                <input type="radio" name="ssd" id="ssd" value="240">240 GB <i>(120 CHF)</i><br>
+                <input type="radio" name="ssd" id="ssd" value="500"><i>500 GB (250 CHF)</i><br>
+                <input type="radio" name="ram" id="ram" value="1000"><i>1'000 GB (500 CHF)</i><br>
+            </form>
         </section>
     </main>
 </div>

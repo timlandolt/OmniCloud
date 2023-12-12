@@ -26,7 +26,7 @@
                 Balance zwischen Innovation und bewährter Leistung.
             </p>
         </section>
-        <section class="angebot">
+        <section class="card">
             <h1>Unser Angebot</h1>
             <p>
                 Bei uns erhalten Sie flexibel konfigurierte virtuelle Server.

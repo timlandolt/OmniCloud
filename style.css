@@ -76,10 +76,10 @@ nav a:hover {
     padding: 2rem;
     margin-top: 6.5rem;
     text-align: center;
+    color: white;
 }
 
 .hero h1 {
-    color: white;
     text-align: center;
     font-size: 7vh;
     font-weight: lighter;
@@ -125,7 +125,7 @@ main {
 
 }
 
-.angebot {
+.card {
     margin: auto;
     outline: solid var(--secondary);
     border-radius: 20px;
@@ -178,4 +178,10 @@ main {
 
 section {
     margin: 2rem 0;
+}
+
+.flex-section {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
 }
