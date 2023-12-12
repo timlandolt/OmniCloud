@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OmniCloud | Home</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
 </head>
 <body>
 <div id="wrapper">

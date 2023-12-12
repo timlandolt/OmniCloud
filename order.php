@@ -10,7 +10,7 @@ $kunde = "";
 getServerData();
 
 if (isset($_POST[""]))                                                  //Tim
-testOrder($_POST[""], $_POST[""], $_POST[""]);                          //Tim
+    testOrder($_POST[""], $_POST[""], $_POST[""]);                          //Tim
 function getServerData()
 {
 
@@ -60,21 +60,15 @@ function testOrder($cores, $ram, $storage)
 
     if ($cores <= $small_server["cpu"] && $ram <= $small_server["ram"] && $storage <= $small_server["ssd"]) {
         $server = "small";
-    }
-
-    elseif ($cores <= $medium_server["cpu"] && $ram <= $medium_server["ram"] && $storage <= $medium_server["ssd"]) {
+    } elseif ($cores <= $medium_server["cpu"] && $ram <= $medium_server["ram"] && $storage <= $medium_server["ssd"]) {
         $server = "medium";
-    }
-
-    elseif ($cores <= $big_server["cpu"] && $ram < $big_server["ram"] && $storage <= $big_server["ssd"]) {
+    } elseif ($cores <= $big_server["cpu"] && $ram < $big_server["ram"] && $storage <= $big_server["ssd"]) {
         $server = "big";
+    } else {
+        //Tim
     }
 
-    else {
-                                                                //Tim
-    }
-
-    if (server != "") {
+    if ($server != "") {
         pushOrder($vmCount, $server, $cores, $ram, $storage);
     }
 }
@@ -83,7 +77,7 @@ function pushOrder($vmCount, $server, $cores, $ram, $storage)
 {
     $vmCount += 1;
     $myfile = fopen("kunden.txt", "a");
-    $input = "\n".$vmCount . "," . $server . "," . $cores . "," . $ram . "," . $storage;
+    $input = "\n" . $vmCount . "," . $server . "," . $cores . "," . $ram . "," . $storage;
     fwrite($myfile, $input);
 }
 
@@ -95,11 +89,18 @@ function pushOrder($vmCount, $server, $cores, $ram, $storage)
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OmniCloud-Serverbestellen</title>
+    <title>OmniCloud | Server bestellen</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
 </head>
 <body>
 <div id="wrapper">
     <?php include('header.html'); ?>
+    <main>
+        <section>
+
+        </section>
+    </main>
 </div>
 </body>
 </html>
