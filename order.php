@@ -7,12 +7,12 @@ $big_server = ["cpu" => 16, "ram" => 128, "ssd" => 16000];
 
 $kunde = "";
 
-function getServerData(){
+function getServerData()
+{
     $myfile = fopen("kunden.txt", "r");
 
-    while(! feof($myfile))
-    {
-        foreach (fgets($myfile) as $line){
+    while (!feof($myfile)) {
+        foreach (fgets($myfile) as $line) {
             $dataElements = explode(",", $line);
             if ($dataElements[1] == "small") {
 
@@ -27,7 +27,8 @@ function getServerData(){
     fclose($myfile);
 }
 
-function testOrder($cores, $ram, $storage) {
+function testOrder($cores, $ram, $storage)
+{
 
     global $kunde;
     global $small_server;
@@ -45,10 +46,11 @@ function testOrder($cores, $ram, $storage) {
 
 }
 
-function pushOrder($kunde, $server, $cores, $ram, $storage){
+function pushOrder($kunde, $server, $cores, $ram, $storage)
+{
 
     $myfile = fopen("kunden.txt", "a");
-    $input = $kunde.",".$server.",".$cores.",".$ram.",".$storage;
+    $input = $kunde . "," . $server . "," . $cores . "," . $ram . "," . $storage;
     fwrite($myfile, $input);
 }
 
@@ -60,9 +62,13 @@ function pushOrder($kunde, $server, $cores, $ram, $storage){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OmniCloud-Serverbestellen</title>
+    <title>OmniCloud | Server Bestellen</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div id="wrapper">
 
+    <?php include('header.html') ?>
+</div>
 </body>
 </html>

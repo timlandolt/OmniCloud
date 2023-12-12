@@ -16,26 +16,25 @@
         <a href="order.php" class="button">Jetzt Server bestellen</a>
     </div>
     <main>
-        <section class="centered">
+        <section class="block-text">
             <h2>Wer wir sind</h2>
             <p>Omnicloud ist ein Schweizer Serveranbieter mit Sitz in Basel anno 2013.
                 Das Datacenter befindet sich mitten in einem Bunker in der Tiefe des Omniturms mit etwa 500 Quadratmeter
                 Nutzfläche. Unsere Preise für die individuelle Auswahl machen uns zu einer der besten der Schweiz.
                 Unser Team besteht aus über mehr als 200 IT-Spezialisten mit jahrelanger Erfahrung.</p>
         </section>
-        <section class="centered">
-            <h2>
+        <section>
+            <h2 class="centered">
                 Was wir machen
             </h2>
-            <p>Wir sind einer von den grössten Basler Serveranbieter und wollen die Daten unserer Kunden sicher und
+            <p class="block-text">Wir sind einer von den grössten Basler Serveranbieter und wollen die Daten unserer Kunden sicher und
                 sinnvoll speichern, um Ihnen somit die aufwendige und unnötig grosse Speicherplatzbelegung abzunehmen.
                 Unsere Daten sind, wie schon erwähnt, sicher in einer Art Bunkerkomplex und können unmöglich
                 abhandenkommen. </p>
         </section>
-        <section class="centered">
-            <h2>Unsere Ziele
-            </h2>
-            <p>
+        <section>
+            <h2 class="block-right">Unsere Ziele</h2>
+            <p class="block-text">
                 Unsere Ziele sind es, unseren Kunden einen möglichst einfachen Zugang zu dem Server zu bieten, mit einem
                 guten Preis und einem grosszügigem Auswahlangebot.
                 Wir wollen unseren Kunden so wenig Stress wie möglich zubereiten, daher haben wir unserem Bunker eine
