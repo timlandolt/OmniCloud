@@ -63,7 +63,7 @@
                     <h4>Basil Schöni</h4>
                     <img src="img/stars_1.webp" alt="">
                     <p><b>Einfach zu verstehen, netter Service</b></p>
-                    <p>Ich nutze OmniCloud seit geraumer Zeit. Es ist einfach zu bedienen und er Service ist immer
+                    <p>Ich nutze OmniCloud seit geraumer Zeit. Es ist einfach zu bedienen und der Service ist immer
                         nett.</p>
                 </div>
             </div>
