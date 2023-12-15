@@ -7,8 +7,6 @@ $big_server = ["cpu" => 16, "ram" => 131072, "ssd" => 16000];
 
 $kunde = "";
 
-$alarm = false;
-
 getServerData();
 
 if (isset($_POST["cpu"]))
@@ -70,11 +68,22 @@ function testOrder($cores, $ram, $storage)
     } elseif ($cores <= $big_server["cpu"] && $ram < $big_server["ram"] && $storage <= $big_server["ssd"]) {
         $server = "big";
     } else {
-        $alarm = true;
+        echo '
+            <div class="banner alarm">
+                <h4>Entschuldigen Sie die Unannehmlichkeiten</h4>
+                <p>Unsere Server heben keine Kapazitäten für Ihre aktuelle Konfiguration. Probieren Sie es mit einer anderen, kleineren Konfiguration.</p>
+            </div>
+        ';
     }
 
     if ($server != "") {
         pushOrder(str_pad(mt_rand(0, 1000000), 6, '0', STR_PAD_LEFT), $server, $cores, $ram, $storage);
+        echo '
+            <div class="banner confirm">
+                <h4>Ihre Bestellung war erfolgreich!</h4>
+                <p>Ihr Server mit ' . $cores . ' Kern(en), ' . $ram . ' MB RAM und ' . $storage . ' GB SSD-Speicher wurde erfolgreich aufgesetzt! Sie können diesen unter <a href="/meine-dienste.php">Meine Dienste</a> verwalten.</p>
+            </div>
+        ';
     }
 }
 
@@ -100,17 +109,7 @@ function pushOrder($id, $server, $cores, $ram, $storage)
 </head>
 <body>
 <div id="wrapper">
-    <?php
-    include('header.html');
-    if ($alarm) {
-        echo '
-            <div class="alarm">
-                <h4>Entschuldigen Sie die Unannehmlichkeiten</h4>
-                <p>Unsere Server heben keine Kapazitäten für Ihre aktuelle Konfiguration. Probieren Sie es mit einer anderen, kleineren Konfiguration.</p>
-            </div>
-        ';
-    }
-    ?>
+    <?php include('header.html'); ?>
     <div class="hero">
         <h1>Server Konfigurieren</h1>
         <p>In nur wenigen Clicks!</p>
