@@ -5,6 +5,7 @@
     --secondary: #a7d0ff;
     --text-primary: #070937;
     --text-secondary: #298dc7;
+    --alarm: #f4505e;
 }
 
 body {
@@ -87,18 +88,34 @@ nav a:hover {
     margin-bottom: 3vh;
 }
 
-.button {
+.button, .button:focus {
     text-decoration: none;
     color: white;
     background: var(--primary);
     padding: 0.5rem 1rem;
+    border: none;
     border-radius: 0.5rem;
+    outline: none;
 }
 
 .button:hover {
     background-color: var(--text-secondary);
 }
 
+.big-button, .big-button:focus {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    background: var(--primary);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+.big-button:hover {
+    background-color: var(--text-secondary);
+}
 
 main {
     margin: 0 10dvw;
@@ -184,4 +201,40 @@ section {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.alarm {
+    position: absolute;
+    background-color: var(--alarm);
+    padding: 2rem;
+    max-width: 20vw;
+    top: 7.5rem;
+    animation: whoosh 1.25s;
+    left: 1rem;
+    overflow-wrap: break-word;
+}
+
+.alarm h4 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+}
+
+.alarm p {
+    margin: 0;
+}
+
+@keyframes whoosh {
+    from {
+        opacity: 0;
+        left: -100%;
+    }
+
+    to {
+        opacity: 1;
+        left: 1rem;
+    }
 }

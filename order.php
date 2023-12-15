@@ -1,19 +1,21 @@
 <?php
 $vmCount = 0;
 
-$small_server = ["cpu" => 4, "ram" => 32, "ssd" => 4000];
-$medium_server = ["cpu" => 8, "ram" => 64, "ssd" => 8000];
-$big_server = ["cpu" => 16, "ram" => 128, "ssd" => 16000];
+$small_server = ["cpu" => 4, "ram" => 32768, "ssd" => 4000];
+$medium_server = ["cpu" => 8, "ram" => 65536, "ssd" => 8000];
+$big_server = ["cpu" => 16, "ram" => 131072, "ssd" => 16000];
 
 $kunde = "";
 
+$alarm = false;
+
 getServerData();
 
-if (isset($_POST[""]))                                                  //Tim
-    testOrder($_POST[""], $_POST[""], $_POST[""]);                          //Tim
+if (isset($_POST["cpu"]))
+    testOrder($_POST["cpu"], $_POST["ram"], $_POST["ssd"]);
+
 function getServerData()
 {
-
     global $vmCount;
     global $small_server;
     global $medium_server;
@@ -22,6 +24,10 @@ function getServerData()
     $myfile = file("kunden.txt");
 
     foreach ($myfile as $line) {
+        if (trim($line) == '') {
+            unset($myfile[$vmCount]);
+            continue;
+        }
 
         $vmCount++;
 
@@ -51,11 +57,10 @@ function getServerData()
 
 function testOrder($cores, $ram, $storage)
 {
-
-    global $vmCount;
     global $small_server;
     global $medium_server;
     global $big_server;
+    global $alarm;
     $server = "";
 
     if ($cores <= $small_server["cpu"] && $ram <= $small_server["ram"] && $storage <= $small_server["ssd"]) {
@@ -65,20 +70,20 @@ function testOrder($cores, $ram, $storage)
     } elseif ($cores <= $big_server["cpu"] && $ram < $big_server["ram"] && $storage <= $big_server["ssd"]) {
         $server = "big";
     } else {
-        //Tim
+        $alarm = true;
     }
 
     if ($server != "") {
-        pushOrder($vmCount, $server, $cores, $ram, $storage);
+        pushOrder(str_pad(mt_rand(0, 1000000), 6, '0', STR_PAD_LEFT), $server, $cores, $ram, $storage);
     }
 }
 
-function pushOrder($vmCount, $server, $cores, $ram, $storage)
+function pushOrder($id, $server, $cores, $ram, $storage)
 {
-    $vmCount += 1;
     $myfile = fopen("kunden.txt", "a");
-    $input = "\n" . $vmCount . "," . $server . "," . $cores . "," . $ram . "," . $storage;
+    $input = "\n" . $id . "," . $server . "," . $cores . "," . $ram . "," . $storage;
     fwrite($myfile, $input);
+
 }
 
 ?>
@@ -95,46 +100,58 @@ function pushOrder($vmCount, $server, $cores, $ram, $storage)
 </head>
 <body>
 <div id="wrapper">
-    <?php include('header.html'); ?>
+    <?php
+    include('header.html');
+    if ($alarm) {
+        echo '
+            <div class="alarm">
+                <h4>Entschuldigen Sie die Unannehmlichkeiten</h4>
+                <p>Unsere Server heben keine Kapazitäten für Ihre aktuelle Konfiguration. Probieren Sie es mit einer anderen, kleineren Konfiguration.</p>
+            </div>
+        ';
+    }
+    ?>
     <div class="hero">
         <h1>Server Konfigurieren</h1>
         <p>In nur wenigen Clicks!</p>
     </div>
     <main>
         <h2 style="text-align: center">Wählen Sie Ihre Spezifikationen aus</h2>
-        <section class="centered flex-section">
+        <form action="order.php" method="post" class="centered flex-col">
+            <div class="flex-section">
+                <div class="card">
+                    <h3>Arbeitsspeicher</h3>
+                    <input type="radio" name="ram" id="ram" value="512" checked>512 MB <i>(5 CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="1024">1'024 MB <i>(10 CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="2048">2'048 MB <i>(20 CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="4096">4'096 MB <i>(40 CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="8192">8'192 MB <i>(80 CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="16384"><i>16'384 MB (160 CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="32768"><i>32'768 MB (320 CHF)</i><br>
+                </div>
 
-            <form action="order.php" method="post" class="card">
-                <h3>Arbeitsspeicher</h3>
-                <input type="radio" name="ram" id="ram" value="512" checked><br>
-                <input type="radio" name="ram" id="ram" value="1024">1'024 MB <i>(10 CHF)</i><br>
-                <input type="radio" name="ram" id="ram" value="2048">2'048 MB <i>(20 CHF)</i><br>
-                <input type="radio" name="ram" id="ram" value="4096">4'096 MB <i>(40 CHF)</i><br>
-                <input type="radio" name="ram" id="ram" value="8192">8'192 MB <i>(80 CHF)</i><br>
-                <input type="radio" name="ram" id="ram" value="16384"><i>16'384 MB (160 CHF)</i><br>
-                <input type="radio" name="ram" id="ram" value="32768"><i>32'768 MB (320 CHF)</i><br>
-            </form>
+                <div class="card">
+                    <h3>Prozessoren</h3>
+                    <input type="radio" name="cpu" id="cpu" value="1" checked>1 Kern <i>(5 CHF)</i> <br>
+                    <input type="radio" name="cpu" id="cpu" value="2">2 Kerne <i>(10 CHF)</i> <br>
+                    <input type="radio" name="cpu" id="cpu" value="4">4 Kerne <i>(18 CHF)</i> <br>
+                    <input type="radio" name="cpu" id="cpu" value="8">8 Kerne <i>(30 CHF)</i> <br>
+                    <input type="radio" name="cpu" id="cpu" value="16">16 Kerne <i>(45 CHF)</i> <br>
+                </div>
 
-            <form action="order.php" method="post" class="card">
-                <h3>Prozessoren</h3>
-                <input type="radio" name="cpu" id="cpu" value="1" checked>1 Kern <i>(5 CHF)</i> <br>
-                <input type="radio" name="cpu" id="cpu" value="2">2 Kerne <i>(10 CHF)</i> <br>
-                <input type="radio" name="cpu" id="cpu" value="4">4 Kerne <i>(18 CHF)</i> <br>
-                <input type="radio" name="cpu" id="cpu" value="8">8 Kerne <i>(30 CHF)</i> <br>
-                <input type="radio" name="cpu" id="cpu" value="16">16 Kerne <i>(45 CHF)</i> <br>
-            </form>
-
-            <form action="order.php" method="post" class="card">
-                <h3>Speicherplatz</h3>
-                <input type="radio" name="ssd" id="ssd" value="10" checked>10 GB <i>(5 CHF)</i><br>
-                <input type="radio" name="ssd" id="ssd" value="20">20 GB <i>(10 CHF)</i><br>
-                <input type="radio" name="ssd" id="ssd" value="40">40 GB <i>(20 CHF)</i><br>
-                <input type="radio" name="ssd" id="ssd" value="80">80 GB <i>(40 CHF)</i><br>
-                <input type="radio" name="ssd" id="ssd" value="240">240 GB <i>(120 CHF)</i><br>
-                <input type="radio" name="ssd" id="ssd" value="500"><i>500 GB (250 CHF)</i><br>
-                <input type="radio" name="ram" id="ram" value="1000"><i>1'000 GB (500 CHF)</i><br>
-            </form>
-        </section>
+                <div class="card">
+                    <h3>Speicherplatz</h3>
+                    <input type="radio" name="ssd" id="ssd" value="10" checked>10 GB <i>(5 CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="20">20 GB <i>(10 CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="40">40 GB <i>(20 CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="80">80 GB <i>(40 CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="240">240 GB <i>(120 CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="500"><i>500 GB (250 CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="1000"><i>1'000 GB (500 CHF)</i><br>
+                </div>
+            </div>
+            <input type="submit" value="Bestellen" id="submit" class="big-button">
+        </form>
     </main>
 </div>
 </body>
