@@ -5,7 +5,7 @@
     --secondary: #a7d0ff;
     --text-primary: #070937;
     --text-secondary: #298dc7;
-    --alarm: #f4505e;
+    font-family: 'Istok Web', sans-serif;
 }
 
 body {
@@ -14,7 +14,6 @@ body {
 }
 
 #wrapper {
-    font-family: 'Istok Web', sans-serif;
     display: grid;
 }
 
@@ -207,9 +206,8 @@ section {
     flex-direction: column;
 }
 
-.alarm {
+.banner {
     position: absolute;
-    background-color: var(--alarm);
     padding: 2rem;
     max-width: 20vw;
     top: 7.5rem;
@@ -218,13 +216,21 @@ section {
     overflow-wrap: break-word;
 }
 
-.alarm h4 {
+.banner h4 {
     font-size: 2rem;
     margin: 0 0 1rem;
 }
 
-.alarm p {
+.banner p {
     margin: 0;
+}
+
+.confirm {
+    background-color: #50f466;
+}
+
+.alarm {
+    background-color: #f4505e;
 }
 
 @keyframes whoosh {
