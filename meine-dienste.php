@@ -33,10 +33,8 @@ function delete($id)
     $newfile = [];
 
     foreach ($myfile as $line) {
-
         $dataElements = explode(",", $line);
-
-        if ($dataElements[0] != $id) {
+        if ($dataElements[0] != $id && trim($dataElements[0]) != '') {
             $newfile[] = $line;
         }
     }

@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 :root {
     --primary: #339ff4;
     --secondary: #a7d0ff;
     --text-primary: #070937;
     --text-secondary: #298dc7;
-    font-family: 'Istok Web', sans-serif;
+    font-family: system-ui, sans-serif;
 }
 
 body {
@@ -67,12 +65,13 @@ nav a:hover {
 }
 
 .hero {
-    background-color: #1d344d;
+    background-color: #094c6a;
     display: block;
     background-image: linear-gradient(
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.2)
     ), url("img/hero.jpg");
+    background-position: center;
     height: 25vh;
     background-size: cover;
     padding: 2rem;
