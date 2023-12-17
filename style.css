@@ -43,6 +43,7 @@ header > a {
     text-decoration: none;
 }
 
+
 header img {
     margin-right: 1rem;
     margin-bottom: 0.5rem;
@@ -66,6 +67,7 @@ nav a:hover {
 }
 
 .hero {
+    background-color: #1d344d;
     display: block;
     background-image: linear-gradient(
             rgba(0, 0, 0, 0.4),
@@ -85,6 +87,10 @@ nav a:hover {
     font-weight: lighter;
     margin-top: 6vh;
     margin-bottom: 3vh;
+}
+
+.hero > * {
+    animation: blend 0.75s;
 }
 
 .button, .button:focus {
@@ -121,6 +127,7 @@ main {
     margin: 0 10dvw;
     display: flex;
     flex-direction: column;
+    animation: blend 0.75s;
 }
 
 .centered {
@@ -243,6 +250,16 @@ section {
     to {
         opacity: 1;
         left: 1rem;
+    }
+}
+
+@keyframes blend {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 
