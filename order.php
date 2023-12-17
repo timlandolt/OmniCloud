@@ -8,7 +8,7 @@ $big_server = ["cpu" => 16, "ram" => 131072, "ssd" => 16000];
 getServerData();
 
 if (isset($_POST["cpu"]))
-    testOrder($_POST["cpu"], $_POST["ram"], $_POST["ssd"]);
+    testOrder(str_pad(mt_rand(0, 1000000), 6, '0', STR_PAD_LEFT), $_POST["cpu"], $_POST["ram"], $_POST["ssd"]);
 
 function getServerData()
 {
@@ -51,7 +51,7 @@ function getServerData()
     };
 }
 
-function testOrder($cores, $ram, $storage)
+function testOrder($id, $cores, $ram, $storage)
 {
     global $small_server;
     global $medium_server;
@@ -75,11 +75,11 @@ function testOrder($cores, $ram, $storage)
     }
 
     if ($server != "") {
-        pushOrder(str_pad(mt_rand(0, 1000000), 6, '0', STR_PAD_LEFT), $server, $cores, $ram, $storage);
+        pushOrder($id, $server, $cores, $ram, $storage);
         echo '
             <div class="banner confirm">
                 <h4>Ihre Bestellung war erfolgreich!</h4>
-                <p>Ihr Server mit ' . $cores . ' Kern(en), ' . $ram . ' MB RAM und ' . $storage . ' GB SSD-Speicher wurde erfolgreich aufgesetzt! Sie können diesen unter <a href="/meine-dienste.php">Meine Dienste</a> verwalten.</p>
+                <p>Ihr Server (#' . $id . ') mit ' . $cores . ' Kern(en), ' . $ram . ' MB RAM und ' . $storage . ' GB SSD-Speicher wurde erfolgreich aufgesetzt! Sie können diesen unter <a href="/meine-dienste.php">Meine Dienste</a> verwalten.</p>
             </div>
         ';
     }
