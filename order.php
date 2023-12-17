@@ -23,7 +23,7 @@ function getServerData()
     global $medium_server;
     global $big_server;
 
-    $myfile = file("kunden.txt");
+    $myfile = file("kunden.csv");
 
     foreach ($myfile as $line) {
         if (trim($line) == '') {
@@ -93,7 +93,7 @@ function testOrder($cores, $ram, $storage)
 
 function pushOrder($id, $server, $cores, $ram, $storage)
 {
-    $myfile = fopen("kunden.txt", "a");
+    $myfile = fopen("kunden.csv", "a");
     $input = "\n" . $id . "," . $server . "," . $cores . "," . $ram . "," . $storage;
     fwrite($myfile, $input);
 
@@ -101,7 +101,7 @@ function pushOrder($id, $server, $cores, $ram, $storage)
 
 function delete($id)
 {
-    $myfile = file("kunden.txt");
+    $myfile = file("kunden.csv");
 
     foreach ($myfile as $line) {
 
@@ -140,36 +140,55 @@ function delete($id)
             <div class="flex-section">
                 <div class="card">
                     <h3>Arbeitsspeicher</h3>
-                    <input type="radio" name="ram" id="ram" value="512" onchange="ramUpdate()" checked>512 MB <i>(5 CHF)</i><br>
-                    <input type="radio" name="ram" id="ram" value="1024" onchange="ramUpdate()">1'024 MB <i>(10 CHF)</i><br>
-                    <input type="radio" name="ram" id="ram" value="2048" onchange="ramUpdate()">2'048 MB <i>(20 CHF)</i><br>
-                    <input type="radio" name="ram" id="ram" value="4096" onchange="ramUpdate()">4'096 MB <i>(40 CHF)</i><br>
-                    <input type="radio" name="ram" id="ram" value="8192" onchange="ramUpdate()">8'192 MB <i>(80 CHF)</i><br>
-                    <input type="radio" name="ram" id="ram" value="16384" onchange="ramUpdate()"><i>16'384 MB (160 CHF)</i><br>
-                    <input type="radio" name="ram" id="ram" value="32768" onchange="ramUpdate()"><i>32'768 MB (320 CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="512" onchange="ramUpdate(5)" checked>512 MB <i>(5
+                        CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="1024" onchange="ramUpdate(10)">1'024 MB <i>(10
+                        CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="2048" onchange="ramUpdate(20)">2'048 MB <i>(20
+                        CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="4096" onchange="ramUpdate(40)">4'096 MB <i>(40
+                        CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="8192" onchange="ramUpdate(80)">8'192 MB <i>(80
+                        CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="16384" onchange="ramUpdate(160)"><i>16'384 MB (160
+                        CHF)</i><br>
+                    <input type="radio" name="ram" id="ram" value="32768" onchange="ramUpdate(320)"><i>32'768 MB (320
+                        CHF)</i><br>
                 </div>
 
                 <div class="card">
                     <h3>Prozessoren</h3>
-                    <input type="radio" name="cpu" id="cpu" value="1" onchange="coresUpdate(1)" checked>1 Kern <i>(5 CHF)</i> <br>
-                    <input type="radio" name="cpu" id="cpu" value="2" onchange="coresUpdate(2)">2 Kerne <i>(10 CHF)</i> <br>
-                    <input type="radio" name="cpu" id="cpu" value="4" onchange="coresUpdate(4)">4 Kerne <i>(18 CHF)</i> <br>
-                    <input type="radio" name="cpu" id="cpu" value="8" onchange="coresUpdate(8)">8 Kerne <i>(30 CHF)</i> <br>
-                    <input type="radio" name="cpu" id="cpu" value="16" onchange="coresUpdate(16)">16 Kerne <i>(45 CHF)</i> <br>
+                    <input type="radio" name="cpu" id="cpu" value="1" onchange="coresUpdate(5)" checked>1 Kern <i>(5
+                        CHF)</i> <br>
+                    <input type="radio" name="cpu" id="cpu" value="2" onchange="coresUpdate(10)">2 Kerne <i>(10 CHF)</i>
+                    <br>
+                    <input type="radio" name="cpu" id="cpu" value="4" onchange="coresUpdate(18)">4 Kerne <i>(18 CHF)</i>
+                    <br>
+                    <input type="radio" name="cpu" id="cpu" value="8" onchange="coresUpdate(30)">8 Kerne <i>(30 CHF)</i>
+                    <br>
+                    <input type="radio" name="cpu" id="cpu" value="16" onchange="coresUpdate(45)">16 Kerne <i>(45
+                        CHF)</i> <br>
                 </div>
 
                 <div class="card">
                     <h3>Speicherplatz</h3>
-                    <input type="radio" name="ssd" id="ssd" value="10" onchange="storageUpdate(10)" checked>10 GB <i>(5 CHF)</i><br>
-                    <input type="radio" name="ssd" id="ssd" value="20" onchange="storageUpdate(20)">20 GB <i>(10 CHF)</i><br>
-                    <input type="radio" name="ssd" id="ssd" value="40" onchange="storageUpdate(40)">40 GB <i>(20 CHF)</i><br>
-                    <input type="radio" name="ssd" id="ssd" value="80" onchange="storageUpdate(80)">80 GB <i>(40 CHF)</i><br>
-                    <input type="radio" name="ssd" id="ssd" value="240" onchange="storageUpdate(240)">240 GB <i>(120 CHF)</i><br>
-                    <input type="radio" name="ssd" id="ssd" value="500" onchange="storageUpdate(500)"><i>500 GB (250 CHF)</i><br>
-                    <input type="radio" name="ssd" id="ssd" value="1000" onchange="storageUpdate(100)"><i>1'000 GB (500 CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="10" onchange="storageUpdate(5)" checked>10 GB <i>(5
+                        CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="20" onchange="storageUpdate(10)">20 GB <i>(10
+                        CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="40" onchange="storageUpdate(20)">40 GB <i>(20
+                        CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="80" onchange="storageUpdate(40)">80 GB <i>(40
+                        CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="240" onchange="storageUpdate(120)">240 GB <i>(120
+                        CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="500" onchange="storageUpdate(250)"><i>500 GB (250
+                        CHF)</i><br>
+                    <input type="radio" name="ssd" id="ssd" value="1000" onchange="storageUpdate(500)"><i>1'000 GB (500
+                        CHF)</i><br>
                 </div>
             </div>
-            <input type="submit" value="Bestellen" id="submit" class="big-button">
+            <button type="submit" id="submit" class="big-button">Bestellen CHF <span id="price"></span> / Monat</button>
         </form>
     </main>
 </div>
@@ -177,24 +196,25 @@ function delete($id)
 </html>
 
 <script>
+    let cores_cost = 5
+    let ram_cost = 5
+    let storage_cost = 5
 
-    let cores_price_list = { "1": 5, "2": 10, "4": 18, "8": 30, "16": 45 };
-    let ram_price_list = { "512": 5, "1024": 10, "2048": 20, "4096": 40, "8192": 80, "16384": 160, "32768": 320 };
-    let storage_price_list = { "10": 5, "20": 10, "40": 20, "80": 40, "240": 120, "500": 250, "1000": 500 };
-
-    let cores_cost = 1
-    let ram_cost = 512
-    let storage_cost = 10
-
-    function coresUpdate(cores){
-        cores_cost = cores_price_list[cores]
-    }
-    function ramUpdate(ram){
-        ram_cost = ram_price_list[ram]
-    }
-    function storageUpdate(storage){
-        storage_cost = storage_price_list[storage]
+    function coresUpdate(cores) {
+        cores_cost = cores
+        document.getElementById('price').innerHTML = (cores_cost + ram_cost + storage_cost) + ""
     }
 
+    function ramUpdate(ram) {
+        ram_cost = ram
+        document.getElementById('price').innerHTML = (cores_cost + ram_cost + storage_cost) + ""
+    }
 
+    function storageUpdate(storage) {
+        storage_cost = storage
+        document.getElementById('price').innerHTML = (cores_cost + ram_cost + storage_cost) + ""
+    }
+
+
+    document.getElementById('price').innerHTML = (cores_cost + ram_cost + storage_cost) + ""
 </script>
