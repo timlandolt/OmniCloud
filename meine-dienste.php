@@ -1,4 +1,14 @@
 <?php
+
+function anzeigen()
+{
+    $myfile = file("kunden.txt");
+
+    foreach ($myfile as $line) {
+        echo "<div> <p>$line</p> </div>";
+    }
+}
+
 function delete($id)
 {
     $myfile = file("kunden.txt");
