@@ -5,12 +5,6 @@ $small_server = ["cpu" => 4, "ram" => 32768, "ssd" => 4000];
 $medium_server = ["cpu" => 8, "ram" => 65536, "ssd" => 8000];
 $big_server = ["cpu" => 16, "ram" => 131072, "ssd" => 16000];
 
-$cores_cost = ["1" => 5, "2" => 10, "4" => 18, "8" => 30, "16" => 45];
-$ram_cost = ["512" => 5, "1024" => 10, "2048" => 20, "4096" => 40, "8192" => 80, "16384" => 160, "32768" => 320];
-$storage_cost = ["10" => 5, "20" => 10, "40" => 20, "80" => 40, "240" => 120, "500" => 250, "1000" => 500];
-
-$kunde = "";
-
 getServerData();
 
 if (isset($_POST["cpu"]))
@@ -97,22 +91,6 @@ function pushOrder($id, $server, $cores, $ram, $storage)
     $input = "\n" . $id . "," . $server . "," . $cores . "," . $ram . "," . $storage;
     fwrite($myfile, $input);
 
-}
-
-function delete($id)
-{
-    $myfile = file("kunden.csv");
-
-    foreach ($myfile as $line) {
-
-        $dataElements = explode(",", $line);
-
-        if ($dataElements[0] == $id) {
-            $line = "";
-        }
-    }
-
-    str_replace("\r\n\r\n", "\r\n");
 }
 
 ?>
