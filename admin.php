@@ -21,11 +21,13 @@ function einkommensBerechnung()
 
     foreach ($myfile as $line) {
 
-        $dataElements = explode(",", $line);
+        if (trim($line) != "") {
+            $dataElements = explode(",", trim($line));
 
-        $income += $cores_pricelist[$dataElements[2]];
-        $income += $ram_pricelist[$dataElements[3]];
-        $income += $storage_pricelist[$dataElements[4]];
+            $income += $cores_pricelist[$dataElements[2]];
+            $income += $ram_pricelist[$dataElements[3]];
+            $income += $storage_pricelist[$dataElements[4]];
+        }
     }
 }
 
@@ -62,7 +64,6 @@ function getServerData()
         }
     };
 }
-
 
 
 ?>
