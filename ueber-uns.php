@@ -19,28 +19,27 @@
     <main>
         <section class="block-text">
             <h2>Wer wir sind</h2>
-            <p>Omnicloud ist ein Schweizer Serveranbieter mit Sitz in Basel anno 2013.
-                Das Datacenter befindet sich mitten in einem Bunker in der Tiefe des Omniturms mit etwa 500 Quadratmeter
-                Nutzfläche. Unsere Preise für die individuelle Auswahl machen uns zu einer der besten der Schweiz.
-                Unser Team besteht aus über mehr als 200 IT-Spezialisten mit jahrelanger Erfahrung.</p>
+            <p class="block-text">Als führender Anbieter bieten wir innovative Lösungen für virtuelle Maschinen und
+                gehen weit über
+                herkömmliche Angebote hinaus. Unsere Plattform steht für Innovation, Zuverlässigkeit und Flexibilität.
+                Erleben Sie die Zukunft der Cloud-Infrastruktur mit OmniCloud, wo die ideale Balance zwischen Innovation
+                und bewährter Leistung geschaffen wird.</p>
         </section>
         <section>
-            <h2 class="centered">
-                Was wir machen
-            </h2>
-            <p class="block-text">Wir sind einer von den grössten Basler Serveranbieter und wollen die Daten unserer Kunden sicher und
-                sinnvoll speichern, um Ihnen somit die aufwendige und unnötig grosse Speicherplatzbelegung abzunehmen.
-                Unsere Daten sind, wie schon erwähnt, sicher in einer Art Bunkerkomplex und können unmöglich
-                abhandenkommen. </p>
+            <h2 class="centered">Was wir machen</h2>
+            <p class="block-text">Unser Angebot umfasst flexibel konfigurierte virtuelle Server, die auf die
+                individuellen Bedürfnisse unserer Kunden zugeschnitten sind. Von leistungsstarken V-Cores über den
+                schnellsten DDR4-Arbeitsspeicher bis hin zu blitzschnellen SSDs – bei OmniCloud erhalten Sie
+                erstklassige Cloud-Infrastrukturlösungen. Unsere Plattform ermöglicht es Ihnen, die Vorteile der
+                Cloud-Technologie in vollem Umfang zu nutzen.</p>
         </section>
         <section>
             <h2 class="block-right">Unsere Ziele</h2>
             <p class="block-text">
-                Unsere Ziele sind es, unseren Kunden einen möglichst einfachen Zugang zu dem Server zu bieten, mit einem
-                guten Preis und einem grosszügigem Auswahlangebot.
-                Wir wollen unseren Kunden so wenig Stress wie möglich zubereiten, daher haben wir unserem Bunker eine
-                Abschirmung verschaffen, damit keine Störsignale von aussen auf die Daten der Kunden zugreifen oder
-                verändern können.
+                Unsere Mission ist es, unseren Kunden einen unkomplizierten Zugang zu hochmoderner Servertechnologie zu
+                bieten. Bei OmniCloud geht es darum, Innovation,
+                Schnelligkeit und erstklassigen Service miteinander zu verbinden – für ein unvergleichliches
+                Cloud-Erlebnis.
             </p>
         </section>
     </main>
