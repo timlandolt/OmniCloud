@@ -12,6 +12,7 @@ $big_server_used = ["cpu" => 0, "ram" => 0, "ssd" => 0];
 $small_server = ["cpu" => 4, "ram" => 32768, "ssd" => 4000];
 $medium_server = ["cpu" => 8, "ram" => 65536, "ssd" => 8000];
 $big_server = ["cpu" => 16, "ram" => 131072, "ssd" => 16000];
+
 einkommensBerechnung();
 function einkommensBerechnung()
 {
@@ -253,7 +254,7 @@ function anzeigen()
         <section>
             <div class="card">
                 <h1 class="centered">Monatlicher Umsatz</h1>
-                <?php echo "<p><b>Gesammt: </b>CHF " . $income . ".-</p>"; ?>
+                <?php echo "<p><b>Gesamt: </b>CHF " . $income . ".-</p>"; ?>
 
                 <table class="">
                     <tr>
