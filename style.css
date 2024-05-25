@@ -155,6 +155,7 @@ main {
     padding: 0 1rem 1.5rem 1rem;
     align-items: center;
     justify-content: space-around;
+    min-width: fit-content;
 }
 
 .inline {
