@@ -132,8 +132,8 @@ function anzeigen()
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OmniCloud | Admin</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/png">
 </head>
 <body>
 <script>
@@ -156,7 +156,7 @@ function anzeigen()
     <?php include('header.html'); ?>
     <div class="hero">
         <h1>Ressourcen verwalten</h1>
-        <a href="meine-dienste.php" class="button">VServer verwalten</a>
+        <a href="./meine-dienste.php" class="button">VServer verwalten</a>
     </div>
     <main>
         <section>

@@ -79,7 +79,7 @@ function testOrder($id, $cores, $ram, $storage)
         echo '
             <div class="banner confirm">
                 <h4>Ihre Bestellung war erfolgreich!</h4>
-                <p>Ihr Server (#' . $id . ') mit ' . $cores . ' Kern(en), ' . $ram . ' MB RAM und ' . $storage . ' GB SSD-Speicher wurde erfolgreich aufgesetzt! Sie können diesen unter <a href="/meine-dienste.php">Meine Dienste</a> verwalten.</p>
+                <p>Ihr Server (#' . $id . ') mit ' . $cores . ' Kern(en), ' . $ram . ' MB RAM und ' . $storage . ' GB SSD-Speicher wurde erfolgreich aufgesetzt! Sie können diesen unter <a href="./meine-dienste.php">Meine Dienste</a> verwalten.</p>
             </div>
         ';
     }
@@ -102,8 +102,8 @@ function pushOrder($id, $server, $cores, $ram, $storage)
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OmniCloud | Server bestellen</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/png">
 </head>
 <body>
 <div id="wrapper">

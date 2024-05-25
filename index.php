@@ -6,15 +6,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OmniCloud | Home</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/png">
 </head>
 <body>
 <div id="wrapper">
-    <?php include('header.html'); ?>
+    <?php include('./header.html'); ?>
     <div class="hero">
         <h1>Cloud made easy</h1>
-        <a href="order.php" class="button">Jetzt Server bestellen</a>
+        <a href="./order.php" class="button">Jetzt Server bestellen</a>
     </div>
 
     <main>
@@ -43,26 +43,26 @@
             <p class="inline">10 bis 1'000 GB Speicher auf blitzschnellen SSDs</p>
             <br/>
             <br/>
-            <a href="order.php" class="button">Jetzt bestellen</a>
+            <a href="./order.php" class="button">Jetzt bestellen</a>
             <br/>
         </section>
         <section class="bewertungen">
             <div class="ratings">
                 <div class="rating">
                     <h4>Jan Müller</h4>
-                    <img src="img/stars_1.webp" alt="">
+                    <img src="./img/stars_1.webp" alt="">
                     <p><b>Unglaublich</b></p>
                     <p>Ich hoste schon seit mehreren Jahren bei OmniCloud. Ich wurde noch nie enttäuscht!!</p>
                 </div>
                 <div class="rating">
                     <h4>Severin Kienberger</h4>
-                    <img src="img/stars_1.webp" alt="">
+                    <img src="./img/stars_1.webp" alt="">
                     <p><b>Geile Scheiss</b></p>
                     <p>Internet so schnell, dass Resultat kommt, bevor Frage gestellt.</p>
                 </div>
                 <div class="rating">
                     <h4>Basil Schöni</h4>
-                    <img src="img/stars_1.webp" alt="">
+                    <img src="./img/stars_1.webp" alt="">
                     <p><b>Einfach zu verstehen, netter Service</b></p>
                     <p>Ich nutze OmniCloud seit geraumer Zeit. Es ist einfach zu bedienen und der Service ist immer
                         nett.</p>
@@ -71,7 +71,7 @@
             <div>
                 <h1>OmniCloud</h1>
                 <h4>BEWERTUNGEN 968 &bull; <b>HERVORRAGEND</b></h4>
-                <img src="img/stars.webp" alt="" id="stars">
+                <img src="./img/stars.webp" alt="" id="stars">
             </div>
         </section>
     </main>

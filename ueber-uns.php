@@ -6,15 +6,15 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>OmniCloud | Über uns</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="shortcut icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/png">
 </head>
 <body>
 <div id="wrapper">
     <?php include('header.html'); ?>
     <div class="hero">
         <h1>Über OmniCloud</h1>
-        <a href="order.php" class="button">Jetzt Server bestellen</a>
+        <a href="./order.php" class="button">Jetzt Server bestellen</a>
     </div>
     <main>
         <section class="block-text">

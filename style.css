@@ -70,7 +70,7 @@ nav a:hover {
     background-image: linear-gradient(
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.2)
-    ), url("img/hero.jpg");
+    ), url("./img/hero.jpg");
     background-position: center;
     height: 25vh;
     background-size: cover;
