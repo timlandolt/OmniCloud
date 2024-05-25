@@ -115,7 +115,7 @@ nav a:hover {
     border: none;
     border-radius: 0.5rem;
     outline: none;
-    margin-top: 1rem;
+    margin-block: 3rem;
 }
 
 .big-button:hover {
